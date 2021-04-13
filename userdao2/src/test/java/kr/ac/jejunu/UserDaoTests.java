@@ -28,8 +28,6 @@ public class UserDaoTests {
     public void get() throws SQLException, ClassNotFoundException {
         Integer id = 1;
 
-//        ConnectionMaker connectionMaker = new JejuConnectionMaker();
-//        UserDao userDao = new UserDao(connectionMaker);
         // UserDao 에서 받은 것 DaoFactory를 만들어 거기로 던져줌
         User user = userDao.findById(id);
         assertThat(user.getId(), is(id));
@@ -43,8 +41,6 @@ public class UserDaoTests {
         user.setName(name);
         user.setPassword((password));
         //여기서 new 를 통해 connectionMaker를 사용하는 것
-//        ConnectionMaker connectionMaker = new JejuConnectionMaker();
-//        UserDao userDao = new UserDao(connectionMaker);
         userDao.insert(user);
         assertThat(user.getId(), greaterThan(0));
         User insertedUser = userDao.findById(user.getId());
@@ -91,7 +87,6 @@ public class UserDaoTests {
 //    public void getHalla() throws SQLException, ClassNotFoundException {
 //        Integer id = 1;
 //
-//        ConnectionMaker connectionMaker = new HallaConnectionMaker();
 //        UserDao userDao = new UserDao(connectionMaker);
 //        User user = userDao.findById(id);
 //        assertThat(user.getId(), is(id));
@@ -104,7 +99,6 @@ public class UserDaoTests {
 //        User user = new User();
 //        user.setName(name);
 //        user.setPassword((password));
-//        ConnectionMaker connectionMaker = new HallaConnectionMaker();
 //        UserDao userDao = new UserDao(connectionMaker);
 //        userDao.insert(user);
 //        assertThat(user.getId(), greaterThan(0));

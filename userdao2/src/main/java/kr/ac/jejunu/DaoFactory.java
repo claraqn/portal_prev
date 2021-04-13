@@ -3,6 +3,7 @@ package kr.ac.jejunu;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import javax.sql.DataSource;
@@ -32,7 +33,12 @@ public class DaoFactory { //DaoFactory=스프링 코어 => 스프링 그 자체
     @Bean
     public UserDao userDao() {
 
-        return new UserDao(dataSource());
+        return new UserDao(jdbcContext());
+    }
+
+    @Bean
+    public JdbcTemplate jdbcContext() {
+        return new JdbcTemplate(dataSource());
     }
 
     //DataSource = connection에 관련된 다양한 인터페이스 제공
