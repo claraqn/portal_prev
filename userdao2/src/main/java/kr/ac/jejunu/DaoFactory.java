@@ -30,11 +30,11 @@ public class DaoFactory { //DaoFactory=스프링 코어 => 스프링 그 자체
     // 의존성 주입을 하는곳! (의존성 관리를 전문적으로 하는 곳)
     // UserDao를 new를 통해 만들고 거기에 맞는 의존성을 userDao 에게 주입을 해줘서 클라이언트에게 던져줌
     // 이런게 DI 입니다!
-    @Bean
-    public UserDao userDao() {
-
-        return new UserDao(jdbcContext());
-    }
+//    @Bean
+//    public UserDao userDao() {
+//
+//        return new UserDao(jdbcContext());
+//    }
 
     @Bean
     public JdbcTemplate jdbcContext() {
